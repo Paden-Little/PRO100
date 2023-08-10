@@ -8,11 +8,55 @@
 // Shuffle method
 // Google NODE JS K don't do plain JS or you'll screw everthing up 
 
+var colors = ["green", "red", "yellow", "blue", "black"];
+var numbers = ["0","1","2","3","4","5","6","7","8","9","skip","reverse","two","wild","four"];
+var deck = [];
+
+// Add 1 of all color cards
+for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
+{
+    for(var numCounter = 0; numCounter  < 13; numCounter++ )
+    {
+
+        deck.push(colors[colorCounter]+numbers[numCounter])
+    }
+}
+
+// Adds second of all color cards except 0
+for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
+{
+    for(var numCounter = 1; numCounter  < 13; numCounter++ )
+    {
+        
+        deck.push(colors[colorCounter]+numbers[numCounter])
+    }
+}
+
+// Adds wilds
+for(var count = 0; cout < 4; count++)
+{
+    for(var numCounter = 13; numCounter  < 15; numCounter++ )
+    {
+        deck.push(colors[4]+numbers[numCounter])
+    }
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+function Shuffle(){
+    for(var count = 0; count < deck.length - 1; count++)
+    {
+        var wierd = count + getRandomInt(deck.length - count)
+        var card = deck[wierd]
+        deck[wierd] = deck[count]
+        deck[count] = card
+    }
+}
+
 deck = {
     cards: [
-       {
-        color:"red",
-        number:0
-       }
+        
     ]
 }
