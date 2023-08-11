@@ -21,7 +21,7 @@ for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
         deck.push(colors[colorCounter]+numbers[numCounter])
     }
 }
-
+console.log(deck)
 // Adds second of all color cards except 0
 for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
 {
@@ -31,6 +31,7 @@ for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
         deck.push(colors[colorCounter]+numbers[numCounter])
     }
 }
+console.log(deck)
 
 // Adds wilds
 for(var count = 0; cout < 4; count++)
@@ -40,6 +41,7 @@ for(var count = 0; cout < 4; count++)
         deck.push(colors[4]+numbers[numCounter])
     }
 }
+console.log(deck)
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
