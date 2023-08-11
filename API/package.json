@@ -2,14 +2,15 @@
   "name": "api",
   "version": "1.0.0",
   "description": "API for connecting two seperate instances with live communication",
-  "main": "apiStart.js",
   "scripts": {
+    "start": "nodemon apiStart.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express.js": "^1.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "socket.io": "^4.7.2"
   }
 }
