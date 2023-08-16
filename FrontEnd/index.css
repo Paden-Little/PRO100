@@ -1,0 +1,23 @@
+body {
+  --main-background-color: #FDFDFF;
+  --secondary-backgroud-color: #D6DAD5;
+  --main-text-color: #0E2A53;
+  --secondary-text-color: #40423C;
+  --border-color:#D72600;
+  --primary-font-family:'Noto Sans Gothic', sans-serif;
+  font-family: 'Libre Franklin', Helvetica, sans-serif; 
+  background-color: var(--main-background-color);
+}
+/**
+Messaging font: jetbrains mono
+everything else: Poppins
+*/
+@font-face {
+font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+src: url(Josefin_Sans/JosefinSans-VariableFont_wght.ttf);
+}
+
+@font-face {
+font-family: 'Libre Franklin', Helvetica, sans-serif;
+src: url(Libre_Franklin/LibreFranklin-Italic-VariableFont_wght.ttf);
+}
