@@ -27,10 +27,7 @@ function getRandomInt(max) {
 // }
 
 
-module.exports.getDeck = () => {
-    deck.initCards()
-    return deck
-}
+
 
 deck = 
 {
@@ -85,11 +82,8 @@ deck =
     }
 }
 
-deck.initCards(deck.cards)
-deck.shuffle(deck.cards)
-console.log(deck.cards)
-console.log(deck.draw(deck.cards))
-console.log(deck.cards)
-
-
+module.exports.getDeck = () => {
+    deck.initCards()
+    return deck
+}
 
