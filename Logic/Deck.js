@@ -14,7 +14,7 @@ var deck = [];
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
+}
 
 // function Shuffle(){
 //     for(var count = 0; count < deck.length - 1; count++)
@@ -26,15 +26,45 @@ function getRandomInt(max) {
 //     }
 // }
 
+/*
+deck.initCards(deck.cards)
+deck.shuffle(deck.cards)
+console.log(deck.cards)
+console.log(deck.draw(deck.cards))
+console.log(deck.cards)
+*/
 
-
-
-deck = 
-{
-    cards: deck,
-    
-    shuffle: function(cards)
+module.exports.initCards = (cards) => {
+    var colors = ["grn", "red", "yel", "blu", "blk"];
+    var numbers = ["0","1","2","3","4","5","6","7","8","9","s","r","t","w","f"];
+    var cards = [];
+    // Adds 1 of all color cards
+    for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
     {
+        for(var numCounter = 0; numCounter  < 13; numCounter++ )
+        {
+        cards.push(colors[colorCounter]+numbers[numCounter])
+        }
+    }
+    // Adds second of all color cards except 0
+    for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
+    {
+        for(var numCounter = 1; numCounter  < 13; numCounter++ )
+        {
+        cards.push(colors[colorCounter]+numbers[numCounter])
+        }
+    }
+    // Adds wilds
+    for(var count = 0; count < 4; count++)
+    {
+        for(var numCounter = 13; numCounter  < 15; numCounter++ )
+        {
+        cards.push(colors[4]+numbers[numCounter])
+        }
+    }
+
+    //shuffle function def
+    shuffle = () => {
         for(var count = 0; count < cards.length - 1; count++)
         {
             var wierd = count + getRandomInt(cards.length - count)
@@ -42,48 +72,16 @@ deck =
             cards[wierd] = cards[count]
             cards[count] = card
         }
-    },
+    }
 
-    draw: function(cards)
-    {
+    //draw function def
+    draw = () => {
         var drawn = cards[0]
         cards = cards.shift()
         return drawn
-    },
-
-    initCards: function(cards)
-    {
-        var colors = ["grn", "red", "yel", "blu", "blk"];
-        var numbers = ["0","1","2","3","4","5","6","7","8","9","s","r","t","w","f"];
-        // Adds 1 of all color cards
-        for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
-        {
-            for(var numCounter = 0; numCounter  < 13; numCounter++ )
-            {
-            cards.push(colors[colorCounter]+numbers[numCounter])
-            }
-        }
-        // Adds second of all color cards except 0
-        for(var colorCounter = 0; colorCounter  < 4; colorCounter++ )
-        {
-            for(var numCounter = 1; numCounter  < 13; numCounter++ )
-            {
-            cards.push(colors[colorCounter]+numbers[numCounter])
-            }
-        }
-        // Adds wilds
-        for(var count = 0; count < 4; count++)
-        {
-            for(var numCounter = 13; numCounter  < 15; numCounter++ )
-            {
-            cards.push(colors[4]+numbers[numCounter])
-            }
-        }
     }
+
+    return {shuffle, draw, cards};
 }
 
-module.exports.getDeck = () => {
-    deck.initCards()
-    return deck
-}
 
