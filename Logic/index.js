@@ -1,6 +1,7 @@
 //console.log("Hello world!")
 
 const deckFactory = require("./Deck.js");
+deck = deckFactory.initCards();
 
 const beginninghand = 7
 
@@ -27,7 +28,7 @@ john1.first = true
 
 function setup()
 {
-    deck = deckFactory.initCards();
+    
     deck.shuffle()
     for (let index = 0; index < beginninghand; index++) {
         john1.hand += deck.draw()
