@@ -1,7 +1,13 @@
-console.log("Hello world!")
+//console.log("Hello world!")
 
-const deckClass = require("./Deck.js")
+const deckFactory = require("./Deck.js");
 
-let deckOfUnoCards = deckClass.getDeck
+deck = deckFactory.initCards();
 
-console.log(deckOfUnoCards)
+
+
+console.log(deck)
+deck.shuffle()
+console.log(deck)
+console.log(deck.draw())
+console.log(deck)
