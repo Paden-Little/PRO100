@@ -77,7 +77,7 @@ module.exports.initCards = (cards) => {
     //draw function def
     draw = () => {
         var drawn = cards[0]
-        cards = cards.shift()
+        cards.shift()
         return drawn
     }
 
