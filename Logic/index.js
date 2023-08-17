@@ -3,6 +3,7 @@
 const deckFactory = require("./Deck.js");
 const beginninghand = 7;
 var deck
+var playPile = []
 
 class Player {
     constructor() {
@@ -22,6 +23,7 @@ function setup()
 {
     deck = deckFactory.initCards();
     deck.shuffle();
+    playPile.unshift(deck.draw())
 }
 // Gives the players their starting cards
 function giveStartCards()
@@ -57,3 +59,40 @@ if(!drawCard(kevin2))
 }
 
 console.log("Kevin2's hand:", kevin2.hand);
+
+// Playcard method, takes in the player and the card that said player has tried to play
+// Checks to see if card is playable, if yes remove card from player hand and put that
+// card on top of the playpile
+// Needs optimizing
+function playCard(player, card)
+{
+    topCard = playPile[0]
+    if(card.substring(0,3) === "blk")
+    {
+        player.hand = player.hand.filter(item => item !== card)
+        // Check for effects of card
+        playPile.unshift(card)
+    }
+    else if(card.substring(0,3) === topCard.substring(0,3))
+    {
+        player.hand = player.hand.filter(item => item !== card)
+        // Check for effects of card
+        playPile.unshift(card)
+    }
+    else if(card.substring(3) === topCard.substring(3))
+    {
+        player.hand = player.hand.filter(item => item !== card)
+        // Check for effects of card
+        playPile.unshift(card)
+    }
+    else
+    {
+        return false
+    }
+}
+
+john1.hand.push("grn3")
+playPile.unshift("blu3")
+playCard(john1, john1.hand[7])
+console.log(john1.hand)
+
