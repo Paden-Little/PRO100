@@ -40,7 +40,7 @@ giveStartCards()
 
 // drawCard method, takes in a player and gives them a card, if the deck is empty as in it returns a null when we draw from it 
 // it will return false helping us know when it is empty
-function drawCard(player)
+function drawingCard(player)
 {
     card = deck.draw()
    
@@ -52,13 +52,17 @@ function drawCard(player)
     return true
 }
 // This will check if deck is empty if so it will create a new deck and give the player a card from the new deck
-if(!drawCard(kevin2))
+function drawCard(player)
 {
-    setup()
-    drawCard(kevin2)
+    if(!drawCard(player))
+    {
+        setup()
+        drawCard(player)
+    }
+
 }
 
-console.log("Kevin2's hand:", kevin2.hand);
+
 
 // Playcard method, takes in the player and the card that said player has tried to play
 // Checks to see if card is playable, if yes remove card from player hand and put that
