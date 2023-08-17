@@ -4,6 +4,7 @@ const deckFactory = require("./Deck.js");
 const beginninghand = 7;
 var deck
 var playPile = []
+var firstPlayerTurn = true;
 
 class Player {
     constructor() {
@@ -100,3 +101,65 @@ playPile.unshift("blu3")
 playCard(john1, john1.hand[7])
 console.log(john1.hand)
 
+
+// Effects start
+
+function checkEffect(player, letter)
+{
+    switch(letter)
+    {
+        case "s":
+            skip(player)
+            break;
+        case "r":
+            reverse(player)
+            break;
+        case "t":
+            plus(player, 2)
+            break;
+        case "w":
+            break;
+        case "f":
+            plus(player, 4)
+            break;
+        default:
+            break;
+    }
+}
+
+function skip(player)
+{
+    if(player.first == true)
+    {
+        firstPlayerTurn = true
+    }
+    else
+    {
+        firstPlayerTurn = false;
+    }
+}
+
+function reverse(player)
+{
+    skip(player)
+}
+
+function plus(player, amount)
+{
+    if(player.first == true)
+    {
+        drawMultipleCards(kevin2, amount)
+    }
+    else
+    {
+        drawMultipleCards(john1, amount)
+    }
+}
+
+function drawMultipleCards(player, amount)
+{
+    for(let drawnAmount = 0; drawnAmount < amount; drawnAmount++ )
+    {
+        drawCard(player)
+    }
+}
