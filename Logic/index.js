@@ -71,12 +71,13 @@ function drawCard(player)
 // Needs optimizing
 function playCard(player, card)
 {
+    color = card.substring(0,3)
     topCard = playPile[0]
     if(card.substring(0,3) === "blk")
     {
         player.hand = player.hand.filter(item => item !== card)
-        // Check for effects of card
         playPile.unshift(card)
+        // color = // Function to let player choose a color
     }
     else if(card.substring(0,3) === topCard.substring(0,3))
     {
@@ -90,10 +91,9 @@ function playCard(player, card)
         // Check for effects of card
         playPile.unshift(card)
     }
-    else
-    {
-        return false
-    }
+    checkEffect(player, card.substring(3), color)
+
+    
 }
 
 john1.hand.push("grn3")
@@ -104,7 +104,7 @@ console.log(john1.hand)
 
 // Effects start
 
-function checkEffect(player, letter)
+function checkEffect(player, letter, color)
 {
     switch(letter)
     {
@@ -118,12 +118,27 @@ function checkEffect(player, letter)
             plus(player, 2)
             break;
         case "w":
+            wild(color)
             break;
         case "f":
             plus(player, 4)
+            wild(color)
             break;
         default:
+            changeTurn(player)
             break;
+    }
+}
+
+function changeTurn(player)
+{
+    if(player.first)
+    {
+        firstPlayerTurn = false
+    }
+    else
+    {
+        firstPlayerTurn = true;
     }
 }
 
@@ -162,4 +177,9 @@ function drawMultipleCards(player, amount)
     {
         drawCard(player)
     }
+}
+
+function wild(color)
+{
+    playPile.unshift(color + "0")
 }
