@@ -55,10 +55,10 @@ function drawingCard(player)
 // This will check if deck is empty if so it will create a new deck and give the player a card from the new deck
 function drawCard(player)
 {
-    if(!drawCard(player))
+    if(!drawingCard(player))
     {
         setup()
-        drawCard(player)
+        drawingCard(player)
     }
 
 }
@@ -95,12 +95,6 @@ function playCard(player, card)
 
     
 }
-
-john1.hand.push("grn3")
-playPile.unshift("blu3")
-playCard(john1, john1.hand[7])
-console.log(john1.hand)
-
 
 // Effects start
 
@@ -183,3 +177,9 @@ function wild(color)
 {
     playPile.unshift(color + "0")
 }
+
+john1.hand.push("redt")
+playPile.unshift("red3")
+
+playCard(john1, john1.hand[7])
+console.log(firstPlayerTurn)
