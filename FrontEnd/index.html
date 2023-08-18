@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="index.css" rel="stylesheet">
+    <script src="index.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John1UnoGame</title>
-    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <header>
-<!--Uno Logo-->       <h1>Uno</h1>
+        <img id="unoLogo" src="images/UNOLogo.png"/>
+        <nav>
+        
+        </nav>
+
       
     </header>
     
     <main>
-        <section id="LoginLayout">
+        <section id="LoginLayout" class="center">
+            <form name="gameStartup" onsubmit="return validateForm()" action="submit.php" method="post" class="formDesign">
+                <!--for action, change the submit.php to with the URL where you want to handle the submission server side-->
+                <label for="name">Username:</label>
+                <input type="text" id="name" name="name"><br><br>
+            
+                <label for="roomNumber">Room Number:</label>
+                <input type="roomNumber" id="roomNumber" name="roomNumber"><br><br>
+            
+                <input type="submit" value="Submit">
+              </form>
           
         </section>
         
         <section id="GamePlayLayout">
             
         </section>
+
         <section id="SpinnerLayout">
             
         </section>

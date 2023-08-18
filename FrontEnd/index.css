@@ -1,11 +1,11 @@
 body {
   --main-background-color: #FDFDFF;
-  --secondary-backgroud-color: #D6DAD5;
+  --secondary-backgroud-color: #b1b3b0;
   --main-text-color: #0E2A53;
   --secondary-text-color: #40423C;
   --border-color:#D72600;
-  --primary-font-family:'Noto Sans Gothic', sans-serif;
-  font-family: 'Libre Franklin', Helvetica, sans-serif; 
+  --messaging-font:'JetBrains Mono', 'Andale Mono', Trebuchet, Arial;
+  --primary-font: 'Rubik', 'Gill Sans', Helvetica; 
   background-color: var(--main-background-color);
 }
 /**
@@ -13,11 +13,29 @@ Messaging font: jetbrains mono
 everything else: Poppins
 */
 @font-face {
-font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
-src: url(Josefin_Sans/JosefinSans-VariableFont_wght.ttf);
+font-family: 'JetBrains Mono', 'Andale Mono', Trebuchet, Arial;
+src: url(Fonts/JetBrainsMono/JetBrainsMono-VariableFont_wght.ttf);
 }
 
 @font-face {
-font-family: 'Libre Franklin', Helvetica, sans-serif;
-src: url(Libre_Franklin/LibreFranklin-Italic-VariableFont_wght.ttf);
+font-family: 'Rubik', 'Gill Sans', Helvetica;
+src: url(Fonts/Rubik/Rubik-VariableFont_wght.ttf);
+}
+
+
+.center {
+    margin: auto;
+    margin-top: 10%;
+    width: 60%;
+    border: 3px solid var(--border-color);
+    padding: 10px;
+    background-color: var(--secondary-backgroud-color);
+    
+}
+
+.formDesign {
+  text-align: center;
+  font-family: 'Rubik', 'Gill Sans', Helvetica;
+  font-size: large;
+  margin: 30px 0px 30px 0px;
 }
