@@ -9,18 +9,18 @@
 </head>
 <body>
     <header>
-        <img id="unoLogo" src="images/UNOLogo.png"/>
-        <nav>
         
+        <nav>
+            <img id="unoLogo" src="images/UNOLogo.png"/>
         </nav>
 
-      
     </header>
     
     <main>
-        <section id="LoginLayout" class="center">
+        <!-- This is commented out till js in implemented to make each section fixed and invisible
+            <section id="LoginLayout" class="center">
             <form name="gameStartup" onsubmit="return validateForm()" action="submit.php" method="post" class="formDesign">
-                <!--for action, change the submit.php to with the URL where you want to handle the submission server side-->
+comment: for action, change the submit.php to with the URL where you want to handle the submission server side
                 <label for="name">Username:</label>
                 <input type="text" id="name" name="name"><br><br>
             
@@ -30,12 +30,33 @@
                 <input type="submit" value="Submit">
               </form>
           
-        </section>
+        </section> -->
         
-        <section id="GamePlayLayout">
-            
+        <!--section bellow: center is applied to 'p' tag in grid child
+        until i make a new class andn css section for the cards and messaging 
+        just to test orientation of content nested inside gridChild-->
+        <section class="GamePlayLayout">
+            <div class="drawPile" id="gridChild">
+                <p class="center">Content</p>
+            </div>
+            <div class="playedCards" id="gridChild">
+                <p class="center">content</p>
+            </div>
+            <div class="messageBox" id="gridChild">
+                <p class="center">content</p>
+            </div>
+            <div class="leaderboardBox" id="gridChild">
+                <h3>Leaderboard</h3>
+                <ol>
+                    <li>Username1</li>
+                    <li>Username2</li>
+                    <li>Username3</li>
+                </ol>
+            </div>
         </section>
-
+        <section class="cardScroll">
+            <p>card section</p>
+        </section>
         <section id="SpinnerLayout">
             
         </section>
