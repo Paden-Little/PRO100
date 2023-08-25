@@ -22,6 +22,12 @@ font-family: 'Rubik', 'Gill Sans', Helvetica;
 src: url(Fonts/Rubik/Rubik-VariableFont_wght.ttf);
 }
 
+.gamePlayFlex{
+  display: flex;
+  flex-direction: column;
+  font-family: var(--messaging-font);
+}
+
 
 .center {
     margin: auto;
@@ -33,12 +39,6 @@ src: url(Fonts/Rubik/Rubik-VariableFont_wght.ttf);
     
 }
 
-.formDesign {
-  text-align: center;
-  font-family: 'Rubik', 'Gill Sans', Helvetica;
-  font-size: large;
-  margin: 30px 0px 30px 0px;
-}
 img {
   display: block;
   margin-left: auto;
@@ -48,7 +48,6 @@ img {
   margin-top: 10px;
 }
 
-
 .GamePlayLayout{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -57,20 +56,96 @@ img {
   height: 500px;
 }
 
+
+
+
 #gridChild{
   margin-left: 5%;
   margin-right: 5%;
-  background-color: var(--secondary-backgroud-color);
+  
 }
 
+
+.drawPile img{
+  margin-top: 40px;
+  margin-bottom: auto;
+  height: 50%;
+}
+.drawPile{
+  background-color: var(--main-background-color);
+}
+.drawPileP{
+  margin: auto;
+  margin-top: 10%;
+  width: 60%;
+  border: 3px solid var(--border-color);
+  padding: 10px;
+}
+
+
+
+.playedCardsP{
+  margin: auto;
+  margin-top: 10%;
+  width: 60%;
+  border: 3px solid var(--border-color);
+  padding: 10px;
+}
+.playedCards img{
+  margin-top: 40px;
+  margin-bottom: auto;
+  height: 50%;
+}
+
+
+.messageBox{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-backgroud-color);
+}
+.messageBox h3{
+  text-align: center;
+  
+  margin-left:10px;
+  margin-right: 10px;
+}
+.messageScroll{
+  background-color: var(--main-background-color);
+  margin: 10px;
+  height: 415px;
+  overflow: auto;
+}
+.messageBox li{
+  margin-top: 3px;
+}
+
+
+
 .leaderboardBox{
-  padding: 2%;
+  background-color: var(--secondary-backgroud-color);
+  padding: 4%;
+  border: 10px solid white;
 }
 
 .leaderboardBox h3{
   text-align: center;
 }
 
+
+.scroll-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  background-color: var(--secondary-backgroud-color);
+  height: 220px;
+  overflow: auto;
+}
+.scroll-container img{
+  height: 150px;
+  margin: 10px;
+}
 
 .cardScroll{
   
@@ -92,13 +167,30 @@ main{
   height: 100%;
 }
 
-/*the current background colors are set to indicate sections
-cards, messaging section and leaderboard will be smaller 
-and in the centered within each section*/
+.spinnerChoices {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.spinnerChoices img {
+  width: 100px; /* Adjust the image size as needed */
+  height: 100px;
+  border: 2px solid transparent;
+}
+.spinnerChoices label {
+  cursor: pointer;
+}
 
-/*ask shull about the best way to set up a horizontal scroll bar
-to help with a grid and js that will generate more grid "columns"
-as more cards are added*/
+.spinnerChoices input[type="radio"] {
+  display: none; /* Hide the default radio button */
+}
+
+.spinnerChoices input[type="radio"]:checked + img {
+  border-color: blue; /* Highlight the selected image */
+}
+
+
+
 
 /*likely the login display, gameplay screen, and spinner will be 
 fixed and centered, js will have any screen not in use "invisible"
