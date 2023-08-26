@@ -1,27 +1,119 @@
 <!DOCTYPE html>
-<html>
-<body>
-  <form id="joinRoomForm" action="message.html" method="GET">
-    <input id="roomCode" name="roomCode" type="text" placeholder="Enter room code">
-    <button id="joinButton" type="submit">Join Room</button>
-  </form>
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
-    const socket = io('http://localhost:3000');
-    const joinButton = document.getElementById('joinButton');
-    const roomCodeInput = document.getElementById('roomCode');
-    const messagesDiv = document.getElementById('messages');
+<html lang="en">
+<head>
+    <link href="index.css" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John1UnoGame</title>
+</head>
 
-    joinButton.addEventListener('click', () => {
-      const roomCode = roomCodeInput.value;
-      socket.emit('join room', roomCode);
-    });
 
-    socket.on('message', (message) => {
-      const p = document.createElement('p');
-      p.textContent = message;
-      messagesDiv.appendChild(p);
-    });
-  </script>
+    <!-- Add the game stage content here -->
+    <div id="game-stage">
+    <!-- This is commented out till js in implemented to make each section fixed and invisible
+    comment: for action, change the submit.php to with the URL where you want to handle the submission server side
+-->
+
+    
+
+    <!--section bellow: center is applied to 'p' tag in grid child
+        until i make a new class andn css section for the cards and messaging 
+        just to test orientation of content nested inside gridChild-->
+
+    <div class="gamePlayFlex">
+
+
+        <nav>
+            <img id="unoLogo" src="images/UNOLogo.png" />
+        </nav>
+        <section class="GamePlayLayout">
+            <div class="drawPile" id="gridChild">
+                <p class="drawPileP">Draw Pile</p>
+                <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="cardBack">
+            </div>
+            <div class="playedCards" id="gridChild">
+                <p class="playedCardsP">Current Card</p>
+                <img src="uno_assets_2d/PNGs/small/blue_0.png" alt="playedCard">
+            </div>
+            <div class="messageScroll">
+                <ul id="messages">
+                  <!-- Existing messages -->
+                </ul>
+                <form id="messageForm">
+                  <input type="text" id="m" placeholder="Enter your message">
+                  <button type="submit">Send</button>
+                </form>
+              </div>
+              
+            <div class="leaderboardBox" id="gridChild">
+                <h3>Leaderboard</h3>
+                <ol>
+                    <li>Username1</li>
+                    <li>Username2</li>
+                    <li>Username3</li>
+                </ol>
+            </div>
+        </section>
+        <section class="scroll-container">
+
+            <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+            <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+            <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+            <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+            <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+            <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+            <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+            <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+                <img src="uno_assets_2d/PNGs/small/card_back_alt.png" alt="green">
+
+
+
+        </section>
+    </div>
+    <!--
+    <section id="SpinnerLayout">
+        <form id="spinnerForm">
+            <div class="spinnerChoices">
+                <label>
+                    <input type="radio" name="option" value="blue">
+                    <img src="assests/blue.jpg" alt="blue">
+                </label>
+                <label>
+                    <input type="radio" name="option" value="green">
+                    <img src="assests/green.jpg" alt="green">
+                </label>
+                <label>
+                    <input type="radio" name="option" value="red">
+                    <img src="assests/red.jpg" alt="red">
+                </label>
+                <label>
+                    <input type="radio" name="option" value="yellow">
+                    <img src="assests/yellow.jpg" alt="yellow">
+                </label>
+            </div>
+            <button type="submit">Choose Color</button>
+        </form>
+    </section>
+-->
+    </div>
+
+    <!-- Add the modal overlay for the form -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <h2>Join Room</h2>
+          <form id="gameStartup" class="modal-content">
+            <label for="username">Username:</label>
+            <input type="text" id="name" name="username" required>
+            <label for="room-code">Room Code:</label>
+            <input type="text" id="roomNumber" name="room-code" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+
 </body>
 </html>
+
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <form id="joinRoomForm" action="message.html" method="GET">
+    <input id="roomCode" name="roomCode" type="text" placeholder="Enter room code">
+    <button id="joinButton" type="submit">Join Room</button>
+  </form>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io('http://localhost:3000');
+    const joinButton = document.getElementById('joinButton');
+    const roomCodeInput = document.getElementById('roomCode');
+    const messagesDiv = document.getElementById('messages');
+
+    joinButton.addEventListener('click', () => {
+      const roomCode = roomCodeInput.value;
+      socket.emit('join room', roomCode);
+    });
+
+    socket.on('message', (message) => {
+      const p = document.createElement('p');
+      p.textContent = message;
+      messagesDiv.appendChild(p);
+    });
+  </script>
+</body>
+</html>

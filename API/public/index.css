@@ -1,0 +1,233 @@
+body {
+  --main-background-color: #FDFDFF;
+  --secondary-backgroud-color: #b1b3b0;
+  --main-text-color: #0E2A53;
+  --secondary-text-color: #40423C;
+  --border-color:#D72600;
+  --messaging-font:'JetBrains Mono', 'Andale Mono', Trebuchet, Arial;
+  --primary-font: 'Rubik', 'Gill Sans', Helvetica; 
+  background-color: var(--main-background-color);
+}
+
+/* The Modal (background) */
+.modal {
+  /* Hidden by default */
+ position: fixed; /* Stay in place */
+ z-index: 1; /* Sit on top */
+ left: 0;
+ top: 0;
+ width: 100%; /* Full width */
+ height: 100%; /* Full height */
+ overflow: auto; /* Enable scroll if needed */
+ background-color: rgb(0,0,0); /* Fallback color */
+ background-color: rgba(0,0,0,0.4); /* Black with opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+ background-color: #fefefe;
+ margin: 15% auto; /* 15% from the top and centered */
+ padding: 20px;
+ border: 1px solid #888;
+ width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.hide {
+  display: none;
+}
+.modal.hide {
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+
+/**
+Messaging font: jetbrains mono
+everything else: Poppins
+*/
+@font-face {
+font-family: 'JetBrains Mono', 'Andale Mono', Trebuchet, Arial;
+src: url(Fonts/JetBrainsMono/JetBrainsMono-VariableFont_wght.ttf);
+}
+
+@font-face {
+font-family: 'Rubik', 'Gill Sans', Helvetica;
+src: url(Fonts/Rubik/Rubik-VariableFont_wght.ttf);
+}
+
+.gamePlayFlex{
+  display: flex;
+  flex-direction: column;
+  font-family: var(--messaging-font);
+}
+
+
+.center {
+    margin: auto;
+    margin-top: 10%;
+    width: 60%;
+    border: 3px solid var(--border-color);
+    padding: 10px;
+    background-color: var(--secondary-backgroud-color);
+    
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.GamePlayLayout{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 500px;
+}
+
+
+
+
+#gridChild{
+  margin-left: 5%;
+  margin-right: 5%;
+  
+}
+
+
+.drawPile img{
+  margin-top: 40px;
+  margin-bottom: auto;
+  height: 50%;
+}
+.drawPile{
+  background-color: var(--main-background-color);
+}
+.drawPileP{
+  margin: auto;
+  margin-top: 10%;
+  width: 60%;
+  border: 3px solid var(--border-color);
+  padding: 10px;
+}
+
+
+
+.playedCardsP{
+  margin: auto;
+  margin-top: 10%;
+  width: 60%;
+  border: 3px solid var(--border-color);
+  padding: 10px;
+}
+.playedCards img{
+  margin-top: 40px;
+  margin-bottom: auto;
+  height: 50%;
+}
+
+
+.messageBox{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-backgroud-color);
+}
+.messageBox h3{
+  text-align: center;
+  
+  margin-left:10px;
+  margin-right: 10px;
+}
+.messageScroll{
+  background-color: var(--main-background-color);
+  margin: 10px;
+  height: 415px;
+  overflow: auto;
+}
+.messageBox li{
+  margin-top: 3px;
+}
+
+
+
+.leaderboardBox{
+  background-color: var(--secondary-backgroud-color);
+  padding: 4%;
+  border: 10px solid white;
+}
+
+.leaderboardBox h3{
+  text-align: center;
+}
+
+
+.scroll-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  background-color: var(--secondary-backgroud-color);
+  height: 220px;
+  overflow: auto;
+}
+.scroll-container img{
+  height: 150px;
+  margin: 10px;
+}
+
+.cardScroll{
+  
+  display: block;
+  height: 200px;
+  margin-left: 6%;
+  margin-right: 6%;
+  background-color: var(--secondary-backgroud-color);
+}
+
+footer{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding-left: 20px;
+}
+main{
+  height: 100%;
+}
+
+.spinnerChoices {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.spinnerChoices img {
+  width: 100px; /* Adjust the image size as needed */
+  height: 100px;
+  border: 2px solid transparent;
+}
+.spinnerChoices label {
+  cursor: pointer;
+}
+
+.spinnerChoices input[type="radio"] {
+  display: none; /* Hide the default radio button */
+}
+
+.spinnerChoices input[type="radio"]:checked + img {
+  border-color: blue; /* Highlight the selected image */
+}
+
+
+
+
+/*likely the login display, gameplay screen, and spinner will be 
+fixed and centered, js will have any screen not in use "invisible"
+-game logic will bring up the spinner screen without user indication
+but will use js and user input to send info on which card is allowed
+to be used*/
+
