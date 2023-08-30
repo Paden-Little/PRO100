@@ -11,7 +11,6 @@
 
 var deck = [];
 
-
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
@@ -79,6 +78,12 @@ module.exports.initCards = (cards) => {
         var drawn = cards[0]
         cards.shift()
         return drawn
+    }
+
+    getCardImage = (cardString) => {
+        switch(cardString){
+            case "blkw": return "" //card name in format of "./cards\\blkw.png"
+        }
     }
 
     return {shuffle, draw, cards};

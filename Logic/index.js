@@ -67,6 +67,21 @@ class Game{
     // Needs optimizing
     playCard(player, card)
     {
+        if(player.first)
+        {
+            if(!this.firstPlayerTurn)
+            {
+                return null
+            }
+        }
+        else
+        {
+            if(this.firstPlayerTurn)
+            {
+                return null
+            }
+        }
+        
         let color = card.substring(0,3)
         let topCard = this.playPile[0]
         if(card.substring(0,3) === "blk")

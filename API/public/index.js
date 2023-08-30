@@ -60,7 +60,12 @@ form.addEventListener('submit', function(e) {
   return false;
 });
 
-  
+function changeCardImage(stringToImage){
+  let div = document.querySelector('.playedCards');
+
+  let image = div.querySelector('img');
+  image.src = stringToImage;
+}
 
 socket.on('message', function(msg) {
   var messages = document.getElementById('messages');
@@ -70,9 +75,12 @@ socket.on('message', function(msg) {
   messages.appendChild(li);
 });
 
-socket.on('gameStart', function(deck){
-  
+socket.on('gameSetup', function(deck){
+
+  changeCardImage(deck.draw())
 })
+
+
 
 });
 
