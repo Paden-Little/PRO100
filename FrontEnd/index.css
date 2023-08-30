@@ -189,6 +189,14 @@ main{
   border-color: blue; /* Highlight the selected image */
 }
 
+.playerOne {
+  color: red
+}
+
+.playerTwo {
+  color: blue
+}
+
 
 
 

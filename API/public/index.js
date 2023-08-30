@@ -52,7 +52,7 @@ form.addEventListener('submit', function(e) {
   const message = messageInput.value;
 
   // Emit the message event via the socket connection
-  socket.emit('message', roomCode, message);
+  socket.emit('message', roomCode, username + ": " + message);
 
   // Clear the message input
   messageInput.value = '';
@@ -65,6 +65,7 @@ form.addEventListener('submit', function(e) {
 socket.on('message', function(msg) {
   var messages = document.getElementById('messages');
   var li = document.createElement('li');
+  li.classList.add('playerOne')
   li.textContent = msg;
   messages.appendChild(li);
 });

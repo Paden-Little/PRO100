@@ -10,17 +10,22 @@ app.use(express.static('public'));
 // set up socket.io
 const io = socketIO(server);
 
+usersInRoom = 0;
 // handle socket connections
 io.on('connection', (socket) => {
     console.log('User connected');
-
     // handle joinRoom event
     socket.on('joinRoom', (roomData) => {
+      usersInRoom++
       console.log(roomData)
         // roomData should be an object like { username: 'user1', roomCode: '123456' }
         socket.join(roomData.roomCode, () => {
             console.log(`${roomData.username} joined room ${roomData.roomCode}`);
             io.to(roomData.roomCode).emit('userJoined', { username: roomData.username });
+            if(usersInRoom == 2){
+              console.log("Game Starting!");
+              usersInRoom = 0;
+            }
         });
     });
 
