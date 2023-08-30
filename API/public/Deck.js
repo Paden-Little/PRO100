@@ -33,7 +33,7 @@ console.log(deck.draw(deck.cards))
 console.log(deck.cards)
 */
 
-module.exports.initCards = (cards) => {
+module.exports.initCards = () => {
     var colors = ["grn", "red", "yel", "blu", "blk"];
     var numbers = ["0","1","2","3","4","5","6","7","8","9","s","r","t","w","f"];
     var cards = [];
@@ -62,8 +62,20 @@ module.exports.initCards = (cards) => {
         }
     }
 
-    //shuffle function def
-    shuffle = () => {
+
+
+    getCardImage = (cardString) => {
+        switch(cardString){
+            case "blkw": return "" //card name in format of "./cards\\blkw.png"
+        }
+    }
+
+    return cards;
+}
+
+
+//shuffle function def
+module.exports.shuffle = (cards) => {
         for(var count = 0; count < cards.length - 1; count++)
         {
             var wierd = count + getRandomInt(cards.length - count)
@@ -74,19 +86,8 @@ module.exports.initCards = (cards) => {
     }
 
     //draw function def
-    draw = () => {
+module.exports.draw = (cards) => {
         var drawn = cards[0]
         cards.shift()
         return drawn
     }
-
-    getCardImage = (cardString) => {
-        switch(cardString){
-            case "blkw": return "" //card name in format of "./cards\\blkw.png"
-        }
-    }
-
-    return {shuffle, draw, cards};
-}
-
-

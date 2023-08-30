@@ -23,7 +23,8 @@ io.on('connection', (socket) => {
       socket.join(roomData.roomCode);
       if(usersInRoom == 2){
         console.log("Starting a game");
-        io.in(roomData.roomCode).emit('gameSetup', deckBuilder.initCards());
+        let deck = deckBuilder.initCards()
+        io.in(roomData.roomCode).emit('gameSetup', deck);
       }
     });
 

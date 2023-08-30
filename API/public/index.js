@@ -16,6 +16,12 @@ function validateForm(name, roomNumber) {
   return true;
 }
 
+draw = (cards) => {
+  var drawn = cards[0]
+  cards.shift()
+  return drawn
+}
+
 
 document.addEventListener('DOMContentLoaded', (event) => {
   document.getElementById('gameStartup').addEventListener('submit', function(e){
@@ -76,8 +82,7 @@ socket.on('message', function(msg) {
 });
 
 socket.on('gameSetup', function(deck){
-
-  changeCardImage(deck.draw())
+  changeCardImage('cards\\' + draw(deck) + '.png')
 })
 
 
