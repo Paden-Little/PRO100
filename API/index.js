@@ -10,6 +10,9 @@ app.use(express.static('public'));
 // set up socket.io
 const io = socketIO(server);
 
+//get deck
+const deckBuilder = require('./public/Deck')
+
 usersInRoom = 0;
 // handle socket connections
 io.on('connection', (socket) => {
@@ -18,14 +21,13 @@ io.on('connection', (socket) => {
     socket.on('joinRoom', (roomData) => {
       usersInRoom++
       console.log(roomData)
-        // roomData should be an object like { username: 'user1', roomCode: '123456' }
-        socket.join(roomData.roomCode, () => {
-            console.log(`${roomData.username} joined room ${roomData.roomCode}`);
-            io.to(roomData.roomCode).emit('userJoined', { username: roomData.username });
-            if(usersInRoom == 2){
-              console.log("Game Starting!");
-              usersInRoom = 0;
-            }
+      if(usersInRoom == 2){
+        gameStart();
+        usersInRoom = 0;
+      }
+      socket.join(roomData.roomCode, () => {
+          console.log(`${roomData.username} joined room ${roomData.roomCode} TEST TEST PRINT`);
+          io.to(roomData.roomCode).emit('userJoined', { username: roomData.username });
         });
     });
 
@@ -39,6 +41,11 @@ io.on('connection', (socket) => {
         console.log('User disconnected');
     });
 });
+
+gameStart = () => {
+  console.log("Starting a game");
+  
+}
 
 server.listen(3000, () => console.log('Server is running on port 3000'));
 

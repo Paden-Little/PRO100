@@ -70,6 +70,10 @@ socket.on('message', function(msg) {
   messages.appendChild(li);
 });
 
+socket.on('gameStart', function(deck){
+  
+})
+
 });
 
 
