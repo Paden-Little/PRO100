@@ -81,7 +81,8 @@ module.exports.initCards = (cards) => {
         return drawn
     }
 
-    getCardImage = (cardString) => {
+    getCardImage = (cardString) => 
+    {
         // switch(cardString){
         //     case "blkw": return "./cards\\blkw.png" //card name in format of "./cards\\blkw.png"
         //     case "blkf": return "./cards\\blkf.png"
