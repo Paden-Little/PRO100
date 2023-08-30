@@ -1,5 +1,5 @@
 body {
-  --main-background-color: #FDFDFF;
+  --main-background-color: #c4c4c4;
   --secondary-backgroud-color: #b1b3b0;
   --main-text-color: #0E2A53;
   --secondary-text-color: #40423C;
@@ -91,11 +91,9 @@ img {
 
 
 
-
 #gridChild{
   margin-left: 5%;
   margin-right: 5%;
-  
 }
 
 
@@ -105,23 +103,38 @@ img {
   height: 50%;
 }
 .drawPile{
+  border: 3px solid var(--border-color);
+  border-radius: 12px;
   background-color: var(--main-background-color);
+
 }
 .drawPileP{
-  margin: auto;
-  margin-top: 10%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
   width: 60%;
-  border: 3px solid var(--border-color);
+  font-size: 25px;
   padding: 10px;
 }
 
 
-
-.playedCardsP{
-  margin: auto;
-  margin-top: 10%;
-  width: 60%;
+.playedCards{
   border: 3px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--main-background-color);
+}
+.playedCardsP{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  width: 60%;
+  font-size: 25px;
   padding: 10px;
 }
 .playedCards img{
@@ -158,9 +171,11 @@ img {
   background-color: var(--secondary-backgroud-color);
   padding: 4%;
   border: 10px solid white;
+  border-radius: 12px;
 }
 
 .leaderboardBox h3{
+  font-size: 25px;
   text-align: center;
 }
 
@@ -201,14 +216,20 @@ main{
 }
 
 .spinnerChoices {
-  display: flex;
+  width: 40%;
   gap: 20px;
   align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  margin-right: 30%;
+  margin-left: 30%;
 }
 .spinnerChoices img {
-  width: 100px; /* Adjust the image size as needed */
-  height: 100px;
-  border: 2px solid transparent;
+  width: 150px; /* Adjust the image size as needed */
+  height: 150px;
+  border: 5px solid white;
+  border-radius: 12px;
 }
 .spinnerChoices label {
   cursor: pointer;
@@ -221,6 +242,15 @@ main{
 .spinnerChoices input[type="radio"]:checked + img {
   border-color: blue; /* Highlight the selected image */
 }
+
+.spinnerChoices button {
+  width: 100px;
+  margin-left: 42.5%;
+  background-color: var(--main-text-color);
+  color: white;
+  border-radius: 12px;
+  height: 50px;
+} 
 
 
 
