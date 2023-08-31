@@ -24,8 +24,13 @@ io.on('connection', (socket) => {
       if(usersInRoom == 2){
         console.log("Starting a game");
         let deck = deckBuilder.initCards()
-        io.in(roomData.roomCode).emit('gameSetup', deck);
+        io.in(roomData.roomCode).emit('gameSetup', deck[0], deck);
       }
+    });
+
+    socket.on('playCard', (roomCode, username, playedCard) => {
+      console.log("Emitted Play card in index.js / API " + roomCode + username + playedCard)
+      io.to(roomCode).emit('replaceTopCard', username, playedCard)
     });
 
     //handle messsages
@@ -33,14 +38,13 @@ io.on('connection', (socket) => {
       io.to(roomCode).emit('message', message);
     });
 
+
+
     // handle disconnection
     socket.on('disconnect', () => {
         console.log('User disconnected');
     });
 });
 
-gameStart = () => {
-
-}
 
 server.listen(3000, () => console.log('Server is running on port 3000'));

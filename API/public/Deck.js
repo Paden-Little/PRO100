@@ -62,14 +62,13 @@ module.exports.initCards = () => {
         }
     }
 
-
-
-    getCardImage = (cardString) => {
-        switch(cardString){
-            case "blkw": return "" //card name in format of "./cards\\blkw.png"
-        }
+    for(var count = 0; count < cards.length - 1; count++)
+    {
+        var wierd = count + getRandomInt(cards.length - count)
+        var card = cards[wierd]
+        cards[wierd] = cards[count]
+        cards[count] = card
     }
-
     return cards;
 }
 
