@@ -100,7 +100,9 @@ img {
 .drawPile img{
   margin-top: 40px;
   margin-bottom: auto;
-  height: 50%;
+ /* height: 50%; */
+  width: 60%;
+  height: auto;
 }
 .drawPile{
   border: 3px solid var(--border-color);
@@ -140,7 +142,8 @@ img {
 .playedCards img{
   margin-top: 40px;
   margin-bottom: auto;
-  height: 50%;
+  width: 60%;
+  height: auto;
 }
 
 
@@ -175,7 +178,7 @@ img {
 }
 
 .leaderboardBox h3{
-  font-size: 25px;
+  font-size: 130%;
   text-align: center;
 }
 
